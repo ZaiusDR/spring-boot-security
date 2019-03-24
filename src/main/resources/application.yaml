@@ -1,0 +1,16 @@
+spring:
+    # DB Connection properties
+    datasource:
+        url: "jdbc:mysql://localhost:3306/crm_tracker?useSSL=false"
+        username: "${DB_USER}"
+        password: "${DB_PASS}"
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL57Dialect
+    #Static Mappings
+    resources:
+        add-mappings: true

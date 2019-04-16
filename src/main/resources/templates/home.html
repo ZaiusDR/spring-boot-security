@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-Hello World!!
+
+<div sec:authentication="name"></div>
+<div sec:authentication="principal.authorities"></div>
+
+<hr>
+<p sec:authorize="hasRole('ROLE_MANAGER')">
+    <a href="/leaders">LeaderShip Meeting</a>
+</p>
+
+<p sec:authorize="hasRole('ROLE_ADMIN')">
+    <a href="/systems">IT Systems Meeting</a>
+</p>
+
+
+<hr>
 
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Logout"/>
